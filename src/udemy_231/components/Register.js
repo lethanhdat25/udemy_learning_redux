@@ -5,9 +5,9 @@ import {Formik} from 'formik';
 import {useRef} from "react";
 import Input from "./auth_input/Input";
 import axios from "axios";
-import {schema} from "./schema/RegisterSchema";
+import {schema} from "./schema/AuthSchema";
 
-const Register = () => {
+const Register = (props) => {
     const emailRef = useRef();
     const passwordRef = useRef();
     const nameRef = useRef();
@@ -25,8 +25,9 @@ const Register = () => {
                         username: values.name
                     });
                     resetForm();
+                    props.onLogin();
                     console.log(res);
-                }} validationSchema={()=>schema(emailRef,passwordRef,nameRef)}>
+                }} validationSchema={() => schema(emailRef, passwordRef, nameRef)}>
                     {({values, handleSubmit, touched, handleBlur, handleChange, errors, handleReset}) => {
                         return <form onSubmit={handleSubmit}>
                             <Input ref={emailRef} label="Email" value={values.email} id='email' name={"email"}

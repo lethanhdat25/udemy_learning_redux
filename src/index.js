@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import './udemy_250/App.css';
+import App from './udemy_250/App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
-import store from "./udemy_231/store";
+import store from "./udemy_250/store";
 
 ReactDOM.render(
   <Provider store={store}>
